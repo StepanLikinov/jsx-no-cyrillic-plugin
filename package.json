@@ -1,0 +1,9 @@
+{
+  "name": "jsx-no-cyrillic-plugin",
+  "version": "1.0.0",
+  "description": "ESLint plugin for Prohibit the use of Cyrillic alphabet in React components.",
+  "devDependencies": {
+    "eslint": "^9.22.0",
+    "eslint-plugin-react": "^7.37.4"
+  }
+}
