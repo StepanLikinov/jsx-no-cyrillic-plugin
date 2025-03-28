@@ -3,3 +3,9 @@ function Component() {
         <div>кириллица</div>
     );
 }
+
+function Component2() { 
+    return (
+        <div className="карточка">...</div>
+    );
+}

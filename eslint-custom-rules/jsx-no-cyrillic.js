@@ -9,15 +9,29 @@ module.exports = {
                 schema: [],
             },
             create(context) {
+                function hasCyrillic(text) {
+                    const pattern = /[а-яА-ЯёЁ]/;
+                    return pattern.test(text);
+                }
+
                 return {
                     JSXText(node) {
                         const text = node.value.trim();
-                        const pattern = /[а-яА-ЯёЁ]/;
-                        if (pattern.test(text)) {
+                        if (hasCyrillic(text)) {
                             context.report({
                                 node,
                                 message: 'The use of Cyrillic alphabet in React components is prohibited.'
-                            })
+                            });
+                        }
+                    },
+                    Literal(node) {
+                        if (node.parent.type === 'JSXAttribute' && typeof node.value === 'string') {
+                            if (hasCyrillic(node.value)) {
+                                context.report({
+                                    node,
+                                    message: 'The use of Cyrillic alphabet in Props of React components is prohibited.'
+                                });
+                            }
                         }
                     }
                 }
