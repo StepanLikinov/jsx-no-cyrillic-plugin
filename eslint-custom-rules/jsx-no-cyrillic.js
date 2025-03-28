@@ -33,9 +33,19 @@ module.exports = {
                                 });
                             }
                         }
+                    },
+                    JSXExpressionContainer(node) {
+                        if (node.expression.type === 'Literal' && typeof node.expression.value === 'string') {
+                            if (hasCyrillic(node.expression.value)) {
+                                context.report({
+                                    node,
+                                    message: 'The use of Cyrillic alphabet in React expressions is prohibited.'
+                                });
+                            }
+                        }
                     }
-                }
+                };
             },
         },
     },
-}
+};

@@ -5,5 +5,8 @@
   "devDependencies": {
     "eslint": "^9.22.0",
     "eslint-plugin-react": "^7.37.4"
+  },
+  "scripts": {
+    "test": "node test/test.js"
   }
 }

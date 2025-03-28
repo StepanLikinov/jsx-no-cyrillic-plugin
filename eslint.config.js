@@ -6,6 +6,7 @@ module.exports = [
         files: ["**/*.jsx"],
         languageOptions: {
             parserOptions: {
+                ecmaVersion: "latest",
                 ecmaFeatures: {
                   jsx: true,
                 },
