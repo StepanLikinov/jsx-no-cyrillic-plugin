@@ -32,6 +32,10 @@ npm install
 npx eslint path/to/your/file.jsx
 ```
 
-Eсли в JSX будет найдена кириллица, ESLint выдаст ошибку:
+Eсли внутри компонента будет найдена кириллица, ESLint выдаст ошибку:
 
 `error: The use of Cyrillic alphabet in React components is prohibited.`
+
+Если внутри пропса компонента будет найдена кириллица, ESLint выдаст ошибку:
+
+`error: The use of Cyrillic alphabet in Props of React components is prohibited.`
